@@ -8,9 +8,9 @@ import java.io.IOException;
 
 public class Util {
 
-    public static boolean convertToPdf(String htmlTemplate, String filePath) {
+    public static boolean convertToPdf(String htmlTemplate, String fileName) {
         try {
-            File file = new File(filePath);
+            File file = new File("/templates" + fileName);
             file.createNewFile();
             FileOutputStream outputStream = new FileOutputStream(file);
             HtmlConverter.convertToPdf(htmlTemplate, outputStream);

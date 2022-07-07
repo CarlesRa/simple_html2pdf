@@ -14,11 +14,11 @@ public class UploadController {
 
     @RequestMapping("/get_pdf")
     public String getPdfFile(
-            @RequestParam(value = "filePath", required = false) String filePath,
+            @RequestParam(value = "fileName", required = false) String fileName,
             @RequestParam(value = "template", required = false) String template,
             RedirectAttributes redirectAttributes
     ) {
-        boolean isConverted = Util.convertToPdf(template, filePath);
+        boolean isConverted = Util.convertToPdf(template, fileName);
         redirectAttributes.addFlashAttribute(
                 "message", isConverted ? "File converted successfully!" : "Error converting file" )
                 .addFlashAttribute("isConverted", isConverted);
